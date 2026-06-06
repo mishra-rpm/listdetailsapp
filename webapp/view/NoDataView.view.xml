@@ -1,0 +1,8 @@
+<mvc:View controllerName="listdetailsapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page3" title="{i18n>title}">
+     <IllustratedMessage enableVerticalResponsiveness="true" illustrationType="NoData">
+				</IllustratedMessage>
+    </Page>
+</mvc:View>

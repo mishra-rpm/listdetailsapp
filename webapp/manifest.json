@@ -1,0 +1,146 @@
+{
+  "_version": "1.85.0",
+  "sap.app": {
+    "id": "listdetailsapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.25.0",
+      "toolsId": "7c678152-e3f7-41f6-b7ad-0ce59d775b8b"
+    },
+    "dataSources": {
+      "mainService":{
+        "uri":"/my/mock/server/",
+        "type":"OData",
+        "settings":{
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.148.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "listdetailsapp.i18n.i18n"
+        }
+      },
+      "":{
+        "dataSource":"mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "listdetailsapp.view",
+        "async": true,
+        "controlAggregation": "beginColumnPages",
+        "controlId": "idFlexibleColumnLayout",
+        "clearControlAggregation": true,
+        "bypassed": {
+          "target":[]
+        }
+      },
+      "routes": [
+        {
+          "name": "RouteHome",
+          "pattern": ":?query:",
+          "target": [
+            "TargetHome"
+          ]
+        },
+        {
+          "name": "RouteHomeDetails",
+          "pattern": "carriers/{carrid}",
+          "greedy": false,
+          "target": [
+            "TargetHome",
+            "TargetHomeDetails"
+          ]
+        },{
+          "name": "RouteNoDataView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetNoDataView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetHome": {
+          "id": "Home",
+          "name": "Home",
+          "viewType": "XML",
+          "controlAggregation": "beginColumnPages",
+          "viewLevel": 1
+        },
+        "TargetHomeDetails":{
+          "name": "HomeDetails",
+          "viewLevel": 2,
+          "controlAggregation": "midColumnPages",
+          "viewType": "XML"
+
+        },
+        "TargetNoDataView":{
+          "name": "NoDataView",
+          "controlAggregation": "midColumnPages",
+          "viewType": "XML"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "listdetailsapp.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

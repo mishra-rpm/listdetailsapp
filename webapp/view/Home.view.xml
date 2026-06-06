@@ -1,0 +1,18 @@
+<mvc:View controllerName="listdetailsapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:f="sap.f">
+    <f:DynamicPage id="idDynamicPage" headerExpanded="true" toggleHeaderOnTitleClick="true">
+        <f:content>
+            <List id="list" items="{/UX_C_Carrier_TP}" growing="true" growingThreshold="20" 
+            growingScrollToLoad="true" selectionChange="onSelect" mode="SingleSelectMaster"
+            busyIndicatorDelay="0">
+            <items>
+                <ObjectListItem id="idobjectListItem" title="{Carrname}" intro="{Carrid}"
+                 type="Inactive">
+                 </ObjectListItem>
+            </items>
+            </List>
+        </f:content>
+    </f:DynamicPage>
+    
+</mvc:View>

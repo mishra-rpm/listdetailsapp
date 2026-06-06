@@ -1,0 +1,9 @@
+<mvc:View controllerName="listdetailsapp.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" 
+    xmlns:f="sap.f">
+    <App id="app">
+        <f:FlexibleColumnLayout id="idFlexibleColumnLayout" backgroundDesign="Translucent" layout="{appSettings>/layout}"></f:FlexibleColumnLayout>
+    </App>
+</mvc:View>
