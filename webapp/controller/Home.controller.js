@@ -9,7 +9,7 @@ sap.ui.define([
         },
         onSelect:function(oEvent){
             let sCarrid= oEvent.getParameter("listItem").getProperty("intro");
-            this.getOwnerComponent().getRouter().navTo("RouteHomeDetails",{carrid:sCarrid},true);
+            this.getRouter().navTo("RouteHomeDetails",{carrid:sCarrid},true);
         }
     });
 });

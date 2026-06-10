@@ -6,7 +6,7 @@ sap.ui.define([
 
     return BaseController.extend("listdetailsapp.controller.HomeDetails", {
         onInit() {
-            this.getOwnerComponent().getRouter().getRoute("RouteHomeDetails").attachMatched(this._ObjectMatched,this);
+            this.getRouter().getRoute("RouteHomeDetails").attachMatched(this._ObjectMatched,this);
         },
         _ObjectMatched(oEvent){
             let sArgs = oEvent.getParameter("arguments").carrid;
