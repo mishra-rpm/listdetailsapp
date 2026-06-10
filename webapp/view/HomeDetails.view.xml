@@ -1,6 +1,80 @@
-<mvc:View controllerName="listdetailsapp.controller.Home"
+<mvc:View controllerName="listdetailsapp.controller.HomeDetails"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page2" title="{i18n>title}">
-    </Page>
+    xmlns="sap.m" xmlns:f="sap.f" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout">
+    <uxap:ObjectPageLayout id="idObjectPage" isChildPage="true" headerContentPinnable="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="idHeadertitleforDetailsView" >
+                <uxap:expandedHeading>
+                    <Title 
+                        id="fltitle" 
+                        text="{Carrname}" 
+                        level="H2"/>
+                </uxap:expandedHeading>
+                <uxap:snappedHeading>
+                    <Title text="{Carrname}"></Title>
+                </uxap:snappedHeading>
+                <uxap:navigationActions></uxap:navigationActions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+                    <FlexBox alignItems="Start" wrap="Wrap" justifyContent="SpaceBetween">
+                                <Avatar src="sap-icon://flight"></Avatar>
+                                <layout:VerticalLayout>
+                                    <ObjectAttribute title="{i18n>currenylbtext}" text="{Currcode}"></ObjectAttribute>
+                                    <ObjectAttribute title="{i18n>urltext}" text="{Url}"></ObjectAttribute>
+                                </layout:VerticalLayout>
+                            
+                    </FlexBox>
+                </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Details View">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <Table id="idflightsTable" headerText="FLight Details" items="{path:'to_Flight',sorter :{path:'Carrid'}}" mode="SingleSelectMaster">
+                                <columns>
+                                    <Column>
+                                        <Text text="{i18n>Carrid}"></Text>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>FLightno}"></Text>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>date}"></Text>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>seatsConsumed}"></Text>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{Carrid}"></Text>
+                                            <Text text="{Connid}"></Text>
+                                            <Text text="{path:'Fldate',type:'sap.ui.model.type.Date' ,formatOptions:{pattern:'MMdd,yyyy'}}"></Text>
+                                            <Text text="{Seatsocc}"></Text>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Connection Details">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <List headerText="Connections List" id="idConnectionList" items="{path: 'to_Connection'}">
+                                <items>
+                                    <ObjectListItem title="{Carrid}" numberUnit="{connid}" intro="{Airpto}"></ObjectListItem>
+                                </items>
+                            </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+
 </mvc:View>

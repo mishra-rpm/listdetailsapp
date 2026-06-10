@@ -1,7 +1,8 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
-  "sap/ui/model/json/JSONModel"
-], (BaseController,JSONModel) => {
+  "sap/ui/model/json/JSONModel",
+  "./BaseController"
+], (Controller,JSONModel,BaseController) => {
   "use strict";
 
   return BaseController.extend("listdetailsapp.controller.App", {

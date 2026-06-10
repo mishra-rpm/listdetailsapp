@@ -1,10 +1,15 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "sap/ui/core/mvc/Controller",
+    "./BaseController"
+], (Controller,BaseController) => {
     "use strict";
 
-    return Controller.extend("listdetailsapp.controller.Home", {
+    return BaseController.extend("listdetailsapp.controller.Home", {
         onInit() {
+        },
+        onSelect:function(oEvent){
+            let sCarrid= oEvent.getParameter("listItem").getProperty("intro");
+            this.getOwnerComponent().getRouter().navTo("RouteHomeDetails",{carrid:sCarrid},true);
         }
     });
 });
